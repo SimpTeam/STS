@@ -1,0 +1,6 @@
+main: Main.Main
+name: Plug1
+version: 1.0
+commands:
+  gm:
+    usage: /gm <int>
