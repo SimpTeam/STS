@@ -1,5 +1,6 @@
-package Main;
+package Main.Commands;
 
+import Main.Main;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,7 +12,7 @@ public class Comm implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender Sender, Command com, String s, String[] str) {
         if(!(Sender instanceof Player)){
-            System.out.println("Бан");
+            System.out.println("Бан сука тебе");
             return true;
         }
         Player Pl = (Player) Sender;

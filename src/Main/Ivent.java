@@ -3,12 +3,16 @@ package Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Ivent implements Listener {
     @EventHandler
-    public void onBreak (BlockBreakEvent e){
-        Player Pl = e.getPlayer();
-        Pl.sendMessage("ТЫ ЧЕ ПИДРИЛА???");
+    public void onChat (AsyncPlayerChatEvent e){
+        Player pl = e.getPlayer();
+        String message = e.getMessage();
+        if(message.contains("сука")){
+            pl.sendMessage("Хули материшься?");
+            e.setCancelled(true);
+        }
     }
 }

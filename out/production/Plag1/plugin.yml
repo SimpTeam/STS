@@ -4,3 +4,9 @@ version: 1.0
 commands:
   gm:
     usage: /gm <int>
+  stsreload:
+    usage: /stsreload <file>
+  mute:
+    usage: /mute <playerName> <muteTime>
+  demute:
+    usage: /demute <playerName>
