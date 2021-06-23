@@ -16,12 +16,14 @@ public class Main extends JavaPlugin {
     public static File localeFile;
 
     public static Plugin plugin;
+    public static PlayersMap playersMap;
 
     public void onEnable(){
         plugin = this;
         registerCommands();
         loadFiles();
         Bukkit.getPluginManager().registerEvents(new Ivent(),this);
+        playersMap = new PlayersMap();
     }
 
     //Метод загрузки конфигурационных файлов (locale и config)
@@ -46,5 +48,4 @@ public class Main extends JavaPlugin {
         getCommand("demute").setExecutor(new Demute());
         getCommand("stsreload").setExecutor(new Control());
     }
-
 }

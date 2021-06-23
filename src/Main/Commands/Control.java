@@ -34,6 +34,15 @@ public class Control implements CommandExecutor {
                 p.sendMessage(Objects.requireNonNull(Main.locale.getString("reload_plugin")));
                 return true;
             }
+
+            //Перезагрузка locale
+            if("locale".contains(arg)){
+
+            }
+
+            if("check".contains(arg)){
+                p.sendMessage("Игроки в муте: " + " ключи: " + Main.playersMap.getBastards().size());
+            }
         }
         return false;
     }

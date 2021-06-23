@@ -6,12 +6,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Ivent implements Listener {
+    Utils utils = new Utils();
     @EventHandler
     public void onChat (AsyncPlayerChatEvent e){
         Player pl = e.getPlayer();
         String message = e.getMessage();
-        if(message.contains("сука")){
-            pl.sendMessage("Хули материшься?");
+        if(Main.playersMap.inList(pl.getName())){
+            pl.sendMessage(utils.chat(Main.locale.getString("cant_write_msg")));
             e.setCancelled(true);
         }
     }
