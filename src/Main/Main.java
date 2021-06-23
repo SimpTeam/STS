@@ -41,7 +41,7 @@ public class Main extends JavaPlugin {
 
     //Регистрация команд
     private void registerCommands(){
-        getCommand("gm").setExecutor(new Comm());
+        getCommand("gm").setExecutor(new gm());
         getCommand("mute").setExecutor(new Mute());
         getCommand("demute").setExecutor(new Demute());
         getCommand("stsreload").setExecutor(new Control());

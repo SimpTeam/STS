@@ -7,6 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Objects;
+
 public class Control implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String lbl, String[] args) {
@@ -18,7 +20,7 @@ public class Control implements CommandExecutor {
         Player p = (Player) sender;
 
         if(args.length == 0){
-            p.sendMessage(Main.locale.getString("no_file_msg"));
+            p.sendMessage(Objects.requireNonNull(Main.locale.getString("no_file_msg")));
             return true;
         }
 
@@ -29,7 +31,7 @@ public class Control implements CommandExecutor {
             if("plugin".contains(arg)){
                 Bukkit.getPluginManager().disablePlugin(Main.plugin);
                 Bukkit.getPluginManager().enablePlugin(Main.plugin);
-                p.sendMessage(Main.locale.getString("reload_plugin"));
+                p.sendMessage(Objects.requireNonNull(Main.locale.getString("reload_plugin")));
                 return true;
             }
         }

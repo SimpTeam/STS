@@ -33,9 +33,4 @@ public class Mute implements CommandExecutor {
     private void mute (){
 
     }
-
-    //Тут получаем игрока
-    private Player getBastard(String name){
-        return  null;
-    }
 }
