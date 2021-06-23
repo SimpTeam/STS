@@ -1,7 +1,7 @@
-package Main.Commands;
+package MainPack.Commands;
 
-import Main.Main;
 import org.bukkit.Bukkit;
+import MainPack.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

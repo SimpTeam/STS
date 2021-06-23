@@ -1,7 +1,7 @@
-package Main.Commands;
+package MainPack.Commands;
 
-import Main.Main;
-import Main.Utils;
+import MainPack.Main;
+import MainPack.Utils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -38,6 +38,6 @@ public class Demute implements CommandExecutor {
     }
     //Тут демутим
     private void demute (String player){
-         Main.playersMap.delPunish(player);
+        Main.playersMap.delPunish(player);
     }
 }

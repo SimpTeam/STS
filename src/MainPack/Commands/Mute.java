@@ -1,8 +1,8 @@
-package Main.Commands;
+package MainPack.Commands;
 
-import Main.Main;
-import Main.Utils;
-import Main.Punishment;
+import MainPack.Main;
+import MainPack.Utils;
+import MainPack.Punishment;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

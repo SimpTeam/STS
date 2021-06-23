@@ -1,6 +1,6 @@
-package Main;
+package MainPack;
 
-import Main.Commands.*;
+import MainPack.Commands.*;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
