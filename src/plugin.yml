@@ -1,4 +1,4 @@
-main: Main.Main
+main: MainPack.Main
 name: Plug1
 version: 1.0
 commands:

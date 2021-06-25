@@ -1,9 +1,9 @@
 package MainPack;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Punishment {
-    int sec;
     Calendar start;
     Calendar end;
     int min;
@@ -11,13 +11,24 @@ public class Punishment {
     String min1 = "234";
     String min2 = "567890";
 
+
     public Punishment(int min){
         this.min = min;
 
-        sec = this.min*60;
         start = Calendar.getInstance();
         end = (Calendar) start.clone();
         end.add(Calendar.MINUTE, this.min);
+    }
+
+    public Punishment(int min, Calendar end){
+        this.min = min;
+        this.end = end;
+        start = (Calendar) end.clone();
+        start.add(Calendar.MINUTE, -min);
+    }
+
+    public int getMinute(){
+        return this.min;
     }
 
     public String checkMute(){
@@ -30,7 +41,7 @@ public class Punishment {
             return difference/60 + getMin((int) difference);
         }
         else {
-            return (int) difference/60 + getMin((int) difference) + " " + getSec((int) difference%60) + getSec((int)difference%60);
+            return (int) difference/60 + getMin((int) difference/60) + " " + (int) difference%60 + getSec((int)difference%60);
         }
     }
 

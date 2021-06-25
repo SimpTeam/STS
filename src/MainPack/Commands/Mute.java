@@ -3,6 +3,7 @@ package MainPack.Commands;
 import MainPack.Main;
 import MainPack.Utils;
 import MainPack.Punishment;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -48,6 +49,7 @@ public class Mute implements CommandExecutor {
 
             mute(bastard.getName(), min);
             player.sendMessage(utils.chat(Main.locale.getString("mute_finish")));
+            Bukkit.getScheduler().runTaskLater(Main.plugin,()-> Main.playersMap.delPunish(bastard.getName()), 20L *60*min);
             return true;
         }
         return false;

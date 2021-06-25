@@ -13,7 +13,7 @@ public class Ivent implements Listener {
         Player pl = e.getPlayer();
         String message = e.getMessage();
         if(Main.playersMap.inList(pl.getName())){
-            pl.sendMessage(utils.chat(Main.locale.getString("cant_write_msg")));
+            pl.sendMessage(Main.playersMap.getPunish(pl.getName()).checkMute());
             e.setCancelled(true);
         }
     }
