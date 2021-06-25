@@ -13,6 +13,11 @@ public class Ivent implements Listener {
         Player pl = e.getPlayer();
         String message = e.getMessage();
         if(Main.playersMap.inList(pl.getName())){
+            if(Main.playersMap.getBastards().get(pl.getName()).needFree()){
+                Main.playersMap.delPunish(pl.getName());
+                pl.sendMessage("Вы размучены");
+                return;
+            }
             pl.sendMessage(Main.playersMap.getPunish(pl.getName()).checkMute());
             e.setCancelled(true);
         }

@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,18 +47,11 @@ public class PlayersMap {
             }
 
             File file = new File(Main.plugin.getDataFolder() + File.separator + "bastards.yml");
-            System.out.println("0");
             file.delete();
-            System.out.println("1");
             FileConfiguration basts = YamlConfiguration.loadConfiguration(file);
-            System.out.println("2");
-            for(String name: bastards.keySet()){
-                String s = format.format(bastards.get(name));
-                System.out.println(s);
-                basts.set(name + ".punish", s);
-                System.out.println("3");
-                basts.set(name + ".minutes", bastards.get(name).getMinute());
-                System.out.println("4");
+            for(String key : bastards.keySet()){
+                basts.set(key + ".punish", format.format(bastards.get(key).getEnd().getTime()));
+                basts.set(key + ".minutes", bastards.get(key).getMinute());
             }
             basts.save(file);
             System.out.println("Наказанные сохранены");
@@ -65,5 +59,31 @@ public class PlayersMap {
         catch (Exception ex){
             System.out.println("Ошибка сохранения наказанных");
         }
+    }
+
+    public void setBastards(){
+        bastards.clear();
+        if(!new File(Main.plugin.getDataFolder() + File.separator + "bastards.yml").exists()){
+            System.out.println("Наказанные не обнаружены");
+            return;
+        }
+
+        File file = new File(Main.plugin.getDataFolder() + File.separator + "bastards.yml");
+        FileConfiguration basts = YamlConfiguration.loadConfiguration(file);
+        for(String key: basts.getKeys(false)){
+            bastards.put(key, new Punishment(basts.getInt(key+".minute"), getCal(basts.getString(key+".punish"))));
+        }
+        file.delete();
+    }
+
+    private Calendar getCal(String cal){
+        Calendar ret = Calendar.getInstance();
+        try{
+        ret.setTime(format.parse(cal));
+        }
+        catch (Exception e){
+            return  null;
+        }
+        return ret;
     }
 }

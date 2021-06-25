@@ -24,6 +24,11 @@ public class Main extends JavaPlugin {
         loadFiles();
         Bukkit.getPluginManager().registerEvents(new Ivent(),this);
         playersMap = new PlayersMap();
+        playersMap.setBastards();
+    }
+
+    public void onDisable(){
+        playersMap.saveBastards();
     }
 
     //Метод загрузки конфигурационных файлов (locale и config)

@@ -1,6 +1,5 @@
 package MainPack;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Punishment {
@@ -10,6 +9,7 @@ public class Punishment {
 
     String min1 = "234";
     String min2 = "567890";
+
 
     public Punishment(int min){
         this.min = min;
