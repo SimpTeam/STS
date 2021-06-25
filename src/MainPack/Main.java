@@ -26,10 +26,6 @@ public class Main extends JavaPlugin {
         playersMap = new PlayersMap();
     }
 
-    public void onDisable(){
-        playersMap.saveBastards();
-    }
-
     //Метод загрузки конфигурационных файлов (locale и config)
     private void loadFiles(){
         if(!new File(getDataFolder() + File.separator + "config.yml").exists()){

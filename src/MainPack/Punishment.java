@@ -11,7 +11,6 @@ public class Punishment {
     String min1 = "234";
     String min2 = "567890";
 
-
     public Punishment(int min){
         this.min = min;
 
@@ -29,6 +28,18 @@ public class Punishment {
 
     public int getMinute(){
         return this.min;
+    }
+
+    public Calendar getEnd(){
+        return this.end;
+    }
+
+    public boolean needFree(){
+        Calendar now = Calendar.getInstance();
+        if(now.getTimeInMillis() >= end.getTimeInMillis()){
+            return true;
+        }
+        else return false;
     }
 
     public String checkMute(){
